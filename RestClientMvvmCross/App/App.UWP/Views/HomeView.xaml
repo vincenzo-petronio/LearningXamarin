@@ -29,6 +29,34 @@
                   commands:ItemClickCommand.Command="{Binding Path=ItemsPostsSelected}"
                   IsItemClickEnabled="True" />
 
+        <StackPanel x:Name="ItemsPostsDetails" Grid.Row="1"
+                    Grid.Column="0"
+                    Margin="0,16,0,0" 
+                    Grid.ColumnSpan="2" 
+                    Background="Azure" 
+                    DataContext="{Binding Path=ItemPost, Mode=OneWay}">
+
+            <TextBlock Text="{Binding Path=UserId}" 
+                   Margin="20"
+                   Foreground="Red" 
+                   FontSize="30" />
+
+            <TextBlock Text="{Binding Path=Id}" 
+                   Margin="20"
+                   Foreground="Red" 
+                   FontSize="30" />
+
+            <TextBlock Text="{Binding Path=Title}" 
+                   Margin="20"
+                   Foreground="Red" 
+                   FontSize="30" />
+
+            <TextBlock Text="{Binding Path=Body}" 
+                   Margin="20"
+                   Foreground="Red" 
+                   FontSize="30" />
+        </StackPanel>
+
         <VisualStateManager.VisualStateGroups>
             <VisualStateGroup x:Name="WindowStates">
                 <VisualState x:Name="DefaultState">
@@ -43,10 +71,10 @@
                     <VisualState.Setters>
                         <Setter Target="ItemsPosts.(Grid.RowSpan)" Value="2"/>
                         <Setter Target="ItemsPosts.(Grid.ColumnSpan)" Value="1"/>
-                        <!--<Setter Target="ItemsDataSetDetails.(Grid.Row)" Value="0" />
-                        <Setter Target="ItemsDataSetDetails.(Grid.RowSpan)" Value="2" />
-                        <Setter Target="ItemsDataSetDetails.(Grid.Column)" Value="1" />
-                        <Setter Target="ItemsDataSetDetails.(Margin)" Value="16,0,0,0" />-->
+                        <Setter Target="ItemsPostsDetails.(Grid.Row)" Value="0" />
+                        <Setter Target="ItemsPostsDetails.(Grid.RowSpan)" Value="2" />
+                        <Setter Target="ItemsPostsDetails.(Grid.Column)" Value="1" />
+                        <Setter Target="ItemsPostsDetails.(Margin)" Value="16,0,0,0" />
                     </VisualState.Setters>
                 </VisualState>
 

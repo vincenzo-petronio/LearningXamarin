@@ -16,6 +16,7 @@ namespace App.Core.ViewModels
         //private readonly IDialogService dialogService;
         private readonly IUserDialogs dialogService;
         private MvxObservableCollection<Post> itemsPosts;
+        private Post itemPost;
         private IMvxCommand itemsPostsSelected;
 
         public HomeViewModel(IApiService apiService, IMvxNavigationService navigationService, /*IDialogService dialogService*/ IUserDialogs dialogService)
@@ -42,6 +43,19 @@ namespace App.Core.ViewModels
             {
                 itemsPosts = value;
                 RaisePropertyChanged(() => ItemsPosts);
+            }
+        }
+
+        public Post ItemPost
+        {
+            get
+            {
+                return itemPost;
+            }
+            set
+            {
+                itemPost = value;
+                RaisePropertyChanged(() => ItemPost);
             }
         }
 
@@ -93,11 +107,15 @@ namespace App.Core.ViewModels
 
         private void getApiPost(Post post)
         {
+            dialogService.ShowLoading();
+
             apiService.GetPost((Post data, Exception error) =>
             {
+                dialogService.HideLoading();
+
                 if (error == null)
                 {
-                    // TODO
+                    ItemPost = data;
                 }
                 else
                 {

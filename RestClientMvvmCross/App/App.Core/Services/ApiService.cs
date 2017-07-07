@@ -107,9 +107,36 @@ namespace App.Core.Services
             callback(results, exception);
         }
 
-        public void GetPost(Action<Post, Exception> callback, string id_post)
+        public async void GetPost(Action<Post, Exception> callback, string id_post)
         {
-            throw new NotImplementedException();
+            Exception exception = null;
+            Post results = new Post();
+            String uri = String.Format(Constants.API_ENDPOINT_POST, id_post);
+            var response = String.Empty;
+
+            try
+            {
+                response = await DownloadData(uri);
+
+                Post responseDeserialized = JsonConvert.DeserializeObject<Post>(response);
+                results = responseDeserialized;
+            }
+            catch (NetworkException ne)
+            {
+                exception = ne;
+            }
+            catch (ArgumentNullException ane)
+            {
+                exception = ane;
+            }
+            catch (ApiException ae)
+            {
+                exception = ae;
+            }
+
+            Debug.WriteLine("[URI]\t{0}\n[RESPONSE]{1}\n\n", uri, response);
+
+            callback(results, exception);
         }
     }
 }
