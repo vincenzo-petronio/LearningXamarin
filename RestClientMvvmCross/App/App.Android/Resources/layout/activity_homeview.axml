@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:local="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:weightSum="3"
+    android:layout_height="match_parent">
+    <mvvmcross.binding.droid.views.MvxListView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:background="@android:color/background_dark"
+        local:MvxBind="ItemsSource ItemsPosts;ItemClick ItemsPostsSelected"
+        local:MvxItemTemplate="@layout/listview_post_template"
+        android:id="@+id/lvItemsPosts" />
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:background="#EAAAF9"
+        android:layout_height="0dp"
+        android:orientation="vertical"
+        android:layout_weight="2">
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="16dp"
+            local:MvxBind="Text ItemPost.UserId" />
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="16dp"
+            local:MvxBind="Text ItemPost.Id" />
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="16dp"
+            local:MvxBind="Text ItemPost.Title" />
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="16dp"
+            local:MvxBind="Text ItemPost.Body" />
+    </LinearLayout>
+</LinearLayout>
