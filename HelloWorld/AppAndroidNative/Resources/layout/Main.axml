@@ -16,8 +16,8 @@
         android:layout_width="match_parent"
         android:layout_margin="@dimen/margin_base"
         a:text="Contacts"
-        android:id="@+id/btnContacts"
-        android:onClick="OnBtnContactsClickListener" />
+        android:text="Contacts"
+        android:id="@+id/btn_contacts" />
     <ListView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"

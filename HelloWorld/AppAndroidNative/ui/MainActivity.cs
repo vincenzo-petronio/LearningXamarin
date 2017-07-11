@@ -1,7 +1,8 @@
 ﻿using Android.App;
+using Android.Content;
 using Android.OS;
-using Android.Views;
 using Android.Widget;
+using AppAndroidNative.ui;
 using System.Collections.Generic;
 
 namespace AppAndroidNative
@@ -23,6 +24,7 @@ namespace AppAndroidNative
 
             TextView tvTitle = FindViewById<TextView>(Resource.Id.tv_title);
             ListView lvItems = FindViewById<ListView>(Resource.Id.lv_items);
+            Button btnContacts = FindViewById<Button>(Resource.Id.btn_contacts);
 
             for (int i = 0; i < 100; i++)
             {
@@ -36,6 +38,8 @@ namespace AppAndroidNative
                 string itemClicked = mListItems[args.Position];
                 Toast.MakeText(this, itemClicked, ToastLength.Short).Show();
             };
+
+            btnContacts.Click += OnBtnContactsClickListener;
         }
 
         protected override void OnResume()
@@ -56,14 +60,10 @@ namespace AppAndroidNative
             Toast.MakeText(this, itemClicked, ToastLength.Short).Show();
         }
 
-        public void OnBtnContactsClickListener(View view)
+        private void OnBtnContactsClickListener(object sender, System.EventArgs e)
         {
-            switch (view.Id)
-            {
-                case Resource.Id.btnContacts:
-                    // TODO
-                    break;
-            }
+            Intent i = new Intent(this, typeof(ContactsActivity));
+            StartActivity(i);
         }
     }
 }
