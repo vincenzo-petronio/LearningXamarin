@@ -3,12 +3,15 @@ using Android;
 using Android.Content;
 using Android.Content.PM;
 using Android.OS;
+using Android.Provider;
 using Android.Runtime;
 using Android.Support.V4.App;
 using Android.Support.V7.Widget;
 using Android.Util;
 using Android.Views;
+using AppAndroidNative.ui.adapters;
 using System;
+using System.Collections.Generic;
 
 namespace AppAndroidNative.ui
 {
@@ -80,12 +83,42 @@ namespace AppAndroidNative.ui
             }
         }
 
-
         private void initUI()
         {
-            //ContactsAdapter contactsAdapter = new ContactsAdapter();
-            //rvContacts.SetAdapter();
             Log.Debug(TAG, "initUI");
+            ContactsAdapter contactsAdapter = new ContactsAdapter(this.Activity, getContacts());
+            rvContacts.SetAdapter(contactsAdapter);
+            rvContacts.SetLayoutManager(new LinearLayoutManager(this.Activity));
+        }
+
+        private List<data.Contact> getContacts()
+        {
+            var contactsList = new List<data.Contact>();
+
+            var uri = ContactsContract.Contacts.ContentUri;
+
+            string[] projection = {
+                ContactsContract.Contacts.InterfaceConsts.Id,
+                ContactsContract.Contacts.InterfaceConsts.DisplayName,
+                ContactsContract.Contacts.InterfaceConsts.PhotoThumbnailUri,
+            };
+
+            //var cursor = this.Activity.ManagedQuery(uri, projection, null, null, null);
+            var cursor = this.Activity.ContentResolver.Query(uri, projection, null, null, null);
+            if (cursor.MoveToFirst())
+            {
+                do
+                {
+                    contactsList.Add(new data.Contact
+                    {
+                        Id = cursor.GetLong(cursor.GetColumnIndex(projection[0])),
+                        Name = cursor.GetString(cursor.GetColumnIndex(projection[1])),
+                        PhotoId = cursor.GetString(cursor.GetColumnIndex(projection[2]))
+                    });
+                } while (cursor.MoveToNext());
+            }
+
+            return contactsList;
         }
 
         private void ShowReadContactsPermission()
@@ -115,7 +148,7 @@ namespace AppAndroidNative.ui
                     //OnAction = ,
                     Title = "Request permission"
                 });
-                if(result)
+                if (result)
                 {
                     ActivityCompat.RequestPermissions(this.Activity, new string[] { Manifest.Permission.ReadContacts }, REQUEST_CONTACTS);
                 }

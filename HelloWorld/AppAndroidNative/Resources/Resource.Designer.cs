@@ -2154,26 +2154,26 @@ namespace AppAndroidNative
 			// aapt resource value: 0x7f020053
 			public const int avd_hide_password = 2130837587;
 			
-			// aapt resource value: 0x7f02006d
-			public const int avd_hide_password_1 = 2130837613;
-			
 			// aapt resource value: 0x7f02006e
-			public const int avd_hide_password_2 = 2130837614;
+			public const int avd_hide_password_1 = 2130837614;
 			
 			// aapt resource value: 0x7f02006f
-			public const int avd_hide_password_3 = 2130837615;
+			public const int avd_hide_password_2 = 2130837615;
+			
+			// aapt resource value: 0x7f020070
+			public const int avd_hide_password_3 = 2130837616;
 			
 			// aapt resource value: 0x7f020054
 			public const int avd_show_password = 2130837588;
 			
-			// aapt resource value: 0x7f020070
-			public const int avd_show_password_1 = 2130837616;
-			
 			// aapt resource value: 0x7f020071
-			public const int avd_show_password_2 = 2130837617;
+			public const int avd_show_password_1 = 2130837617;
 			
 			// aapt resource value: 0x7f020072
-			public const int avd_show_password_3 = 2130837618;
+			public const int avd_show_password_2 = 2130837618;
+			
+			// aapt resource value: 0x7f020073
+			public const int avd_show_password_3 = 2130837619;
 			
 			// aapt resource value: 0x7f020055
 			public const int design_bottom_navigation_item_background = 2130837589;
@@ -2194,58 +2194,61 @@ namespace AppAndroidNative
 			public const int design_snackbar_background = 2130837594;
 			
 			// aapt resource value: 0x7f02005b
-			public const int ic_errorstatus = 2130837595;
+			public const int ic_contacts_black_48dp = 2130837595;
 			
 			// aapt resource value: 0x7f02005c
-			public const int ic_successstatus = 2130837596;
+			public const int ic_errorstatus = 2130837596;
 			
 			// aapt resource value: 0x7f02005d
-			public const int Icon = 2130837597;
+			public const int ic_successstatus = 2130837597;
 			
 			// aapt resource value: 0x7f02005e
-			public const int navigation_empty_icon = 2130837598;
+			public const int Icon = 2130837598;
 			
 			// aapt resource value: 0x7f02005f
-			public const int notification_action_background = 2130837599;
+			public const int navigation_empty_icon = 2130837599;
 			
 			// aapt resource value: 0x7f020060
-			public const int notification_bg = 2130837600;
+			public const int notification_action_background = 2130837600;
 			
 			// aapt resource value: 0x7f020061
-			public const int notification_bg_low = 2130837601;
+			public const int notification_bg = 2130837601;
 			
 			// aapt resource value: 0x7f020062
-			public const int notification_bg_low_normal = 2130837602;
+			public const int notification_bg_low = 2130837602;
 			
 			// aapt resource value: 0x7f020063
-			public const int notification_bg_low_pressed = 2130837603;
+			public const int notification_bg_low_normal = 2130837603;
 			
 			// aapt resource value: 0x7f020064
-			public const int notification_bg_normal = 2130837604;
+			public const int notification_bg_low_pressed = 2130837604;
 			
 			// aapt resource value: 0x7f020065
-			public const int notification_bg_normal_pressed = 2130837605;
+			public const int notification_bg_normal = 2130837605;
 			
 			// aapt resource value: 0x7f020066
-			public const int notification_icon_background = 2130837606;
-			
-			// aapt resource value: 0x7f02006b
-			public const int notification_template_icon_bg = 2130837611;
-			
-			// aapt resource value: 0x7f02006c
-			public const int notification_template_icon_low_bg = 2130837612;
+			public const int notification_bg_normal_pressed = 2130837606;
 			
 			// aapt resource value: 0x7f020067
-			public const int notification_tile_bg = 2130837607;
+			public const int notification_icon_background = 2130837607;
+			
+			// aapt resource value: 0x7f02006c
+			public const int notification_template_icon_bg = 2130837612;
+			
+			// aapt resource value: 0x7f02006d
+			public const int notification_template_icon_low_bg = 2130837613;
 			
 			// aapt resource value: 0x7f020068
-			public const int notify_panel_notification_icon_bg = 2130837608;
+			public const int notification_tile_bg = 2130837608;
 			
 			// aapt resource value: 0x7f020069
-			public const int roundedbg = 2130837609;
+			public const int notify_panel_notification_icon_bg = 2130837609;
 			
 			// aapt resource value: 0x7f02006a
-			public const int roundedbgdark = 2130837610;
+			public const int roundedbg = 2130837610;
+			
+			// aapt resource value: 0x7f02006b
+			public const int roundedbgdark = 2130837611;
 			
 			static Drawable()
 			{
@@ -2470,6 +2473,9 @@ namespace AppAndroidNative
 			// aapt resource value: 0x7f070000
 			public const int item_touch_helper_previous_elevation = 2131165184;
 			
+			// aapt resource value: 0x7f07009f
+			public const int iv_photo = 2131165343;
+			
 			// aapt resource value: 0x7f070074
 			public const int largeLabel = 2131165300;
 			
@@ -2500,8 +2506,8 @@ namespace AppAndroidNative
 			// aapt resource value: 0x7f070087
 			public const int lv_items = 2131165319;
 			
-			// aapt resource value: 0x7f0700a0
-			public const int masked = 2131165344;
+			// aapt resource value: 0x7f0700a3
+			public const int masked = 2131165347;
 			
 			// aapt resource value: 0x7f07008e
 			public const int media_actions = 2131165326;
@@ -2722,6 +2728,12 @@ namespace AppAndroidNative
 			// aapt resource value: 0x7f07000b
 			public const int transition_scene_layoutid_cache = 2131165195;
 			
+			// aapt resource value: 0x7f0700a0
+			public const int tv_fullname = 2131165344;
+			
+			// aapt resource value: 0x7f0700a1
+			public const int tv_id = 2131165345;
+			
 			// aapt resource value: 0x7f070085
 			public const int tv_title = 2131165317;
 			
@@ -2734,8 +2746,8 @@ namespace AppAndroidNative
 			// aapt resource value: 0x7f07000e
 			public const int view_offset_helper = 2131165198;
 			
-			// aapt resource value: 0x7f07009f
-			public const int visible = 2131165343;
+			// aapt resource value: 0x7f0700a2
+			public const int visible = 2131165346;
 			
 			// aapt resource value: 0x7f070027
 			public const int withText = 2131165223;
@@ -2983,16 +2995,19 @@ namespace AppAndroidNative
 			public const int notification_template_part_time = 2130903101;
 			
 			// aapt resource value: 0x7f03003e
-			public const int select_dialog_item_material = 2130903102;
+			public const int row_contact = 2130903102;
 			
 			// aapt resource value: 0x7f03003f
-			public const int select_dialog_multichoice_material = 2130903103;
+			public const int select_dialog_item_material = 2130903103;
 			
 			// aapt resource value: 0x7f030040
-			public const int select_dialog_singlechoice_material = 2130903104;
+			public const int select_dialog_multichoice_material = 2130903104;
 			
 			// aapt resource value: 0x7f030041
-			public const int support_simple_spinner_dropdown_item = 2130903105;
+			public const int select_dialog_singlechoice_material = 2130903105;
+			
+			// aapt resource value: 0x7f030042
+			public const int support_simple_spinner_dropdown_item = 2130903106;
 			
 			static Layout()
 			{

@@ -3,6 +3,10 @@
 using Android.Views;
 using Android.Widget;
 using Android.Support.V7.Widget;
+using System.Collections.Generic;
+using Android.Util;
+using Com.Bumptech.Glide;
+using Android.Content;
 
 namespace AppAndroidNative.ui.adapters
 {
@@ -10,11 +14,13 @@ namespace AppAndroidNative.ui.adapters
     {
         public event EventHandler<ContactsAdapterClickEventArgs> ItemClick;
         public event EventHandler<ContactsAdapterClickEventArgs> ItemLongClick;
-        string[] items;
+        private List<data.Contact> items;
+        private Context context;
 
-        public ContactsAdapter(string[] data)
+        public ContactsAdapter(Context ctx, List<data.Contact> contacts)
         {
-            items = data;
+            this.context = ctx;
+            items = contacts;
         }
 
         // Create new views (invoked by the layout manager)
@@ -23,9 +29,9 @@ namespace AppAndroidNative.ui.adapters
 
             //Setup your layout here
             View itemView = null;
-            //var id = Resource.Layout.__YOUR_ITEM_HERE;
-            //itemView = LayoutInflater.From(parent.Context).
-            //       Inflate(id, parent, false);
+            var id = Resource.Layout.row_contact;
+            itemView = LayoutInflater.From(parent.Context).
+                   Inflate(id, parent, false);
 
             var vh = new ContactsAdapterViewHolder(itemView, OnClick, OnLongClick);
             return vh;
@@ -38,10 +44,14 @@ namespace AppAndroidNative.ui.adapters
 
             // Replace the contents of the view with that element
             var holder = viewHolder as ContactsAdapterViewHolder;
-            //holder.TextView.Text = items[position];
+            holder.FullName.Text = items[position].Name + items[position].Surname;
+            holder.Id.Text = items[position].Id.ToString();
+            Glide.With(context).Load(items[position].PhotoId).Error(Resource.Drawable.ic_contacts_black_48dp)
+                 .Placeholder(Resource.Drawable.ic_contacts_black_48dp)
+                 .Into(holder.Photo);
         }
 
-        public override int ItemCount => items.Length;
+        public override int ItemCount => items.Count;
 
         void OnClick(ContactsAdapterClickEventArgs args) => ItemClick?.Invoke(this, args);
         void OnLongClick(ContactsAdapterClickEventArgs args) => ItemLongClick?.Invoke(this, args);
@@ -50,13 +60,17 @@ namespace AppAndroidNative.ui.adapters
 
     public class ContactsAdapterViewHolder : RecyclerView.ViewHolder
     {
-        //public TextView TextView { get; set; }
-
+        public TextView FullName { get; set; }
+        public ImageView Photo { get; set; }
+        public TextView Id { get; set; }
 
         public ContactsAdapterViewHolder(View itemView, Action<ContactsAdapterClickEventArgs> clickListener,
                             Action<ContactsAdapterClickEventArgs> longClickListener) : base(itemView)
         {
-            //TextView = v;
+            FullName = itemView.FindViewById<TextView>(Resource.Id.tv_fullname);
+            Photo = itemView.FindViewById<ImageView>(Resource.Id.iv_photo);
+            Id = itemView.FindViewById<TextView>(Resource.Id.tv_id);
+
             itemView.Click += (sender, e) => clickListener(new ContactsAdapterClickEventArgs { View = itemView, Position = AdapterPosition });
             itemView.LongClick += (sender, e) => longClickListener(new ContactsAdapterClickEventArgs { View = itemView, Position = AdapterPosition });
         }
