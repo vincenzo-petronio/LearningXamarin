@@ -68,13 +68,14 @@ namespace AppAndroidNative.ui
 
             if (requestCode == REQUEST_CONTACTS)
             {
-                if (grantResults.Length == 1 && grantResults[0] == Permission.Granted)
+                if (grantResults.Length > 0 && grantResults[0] == Permission.Granted)
                 {
                     initUI();
                 }
                 else
                 {
-                    // TODO
+                    // TODO permission denied, boo! Disable the
+                    // functionality that depends on this permission.
                 }
             }
         }
@@ -89,7 +90,7 @@ namespace AppAndroidNative.ui
 
         private void ShowReadContactsPermission()
         {
-            if (ActivityCompat.CheckSelfPermission(Activity, Manifest.Permission.ReadContacts) != (int)Permission.Granted)
+            if (ActivityCompat.CheckSelfPermission(Activity, Manifest.Permission.ReadContacts) != Permission.Granted)
             {
                 Log.Info(TAG, "Contact permissions has NOT been granted. Requesting permissions.");
                 RequestReadContactsPermission();
@@ -101,13 +102,23 @@ namespace AppAndroidNative.ui
             }
         }
 
-        private void RequestReadContactsPermission()
+        private async void RequestReadContactsPermission()
         {
             if (ActivityCompat.ShouldShowRequestPermissionRationale(this.Activity, Android.Manifest.Permission.ReadContacts))
             {
                 // TODO
-                UserDialogs.Instance.ConfirmAsync("message request permission", "Request", "ok", "no");
-                
+                var result = await UserDialogs.Instance.ConfirmAsync(new ConfirmConfig
+                {
+                    Message = "Contact access is required!",
+                    OkText = "Ok",
+                    CancelText = "No",
+                    //OnAction = ,
+                    Title = "Request permission"
+                });
+                if(result)
+                {
+                    ActivityCompat.RequestPermissions(this.Activity, new string[] { Manifest.Permission.ReadContacts }, REQUEST_CONTACTS);
+                }
             }
             else
             {
