@@ -9,7 +9,8 @@
            VerticalOptions="Center" 
            HorizontalOptions="Center" />
 
-        <Button Text="Navigate to ListView" Clicked="Button_Clicked" />
+        <Button Text="Navigate to ListView" Clicked="Button_Clicked"  />
+        <Button Text="Navigate to Carousel" Clicked="OnBtnCarouselClicked" />
     </StackLayout>
 
 </ContentPage>

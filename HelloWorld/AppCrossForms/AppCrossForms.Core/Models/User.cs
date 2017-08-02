@@ -1,0 +1,11 @@
+﻿namespace AppCrossForms.Core.Models
+{
+    public class User
+    {
+        public string Name { get; set; }
+        public string Surname { get; set; }
+        public int Age { get; set; }
+        public int Id { get; set; }
+        public string BirthDay { get; set; }
+    }
+}

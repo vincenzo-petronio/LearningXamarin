@@ -6,6 +6,9 @@ using Android.Runtime;
 using Android.Views;
 using Android.Widget;
 using Android.OS;
+using CarouselView.FormsPlugin.Android;
+using Xamarin.Forms.Platform.Android;
+using CarouselView.FormsPlugin.Abstractions;
 
 namespace AppCrossForms.Droid
 {
@@ -19,7 +22,10 @@ namespace AppCrossForms.Droid
 
             base.OnCreate(bundle);
 
+            // INIT
             global::Xamarin.Forms.Forms.Init(this, bundle);
+            CarouselViewRenderer.Init();
+
             LoadApplication(new App());
         }
     }

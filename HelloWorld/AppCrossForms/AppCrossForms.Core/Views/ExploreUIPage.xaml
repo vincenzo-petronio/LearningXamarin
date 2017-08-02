@@ -1,0 +1,24 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local="clr-namespace:AppCrossForms.Core.Helpers"
+             xmlns:controls="clr-namespace:CarouselView.FormsPlugin.Abstractions;assembly=CarouselView.FormsPlugin.Abstractions"
+             x:Class="AppCrossForms.Core.Views.ExploreUIPage">
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <local:CarouselDataTemplateSelector x:Key="carouselDataTemplateSelector" />
+        </ResourceDictionary>
+    </ContentPage.Resources>
+
+    <ContentPage.Content>
+
+        <controls:CarouselViewControl x:Name="carousel"
+                                       Orientation="Horizontal" 
+                                      InterPageSpacing="10" 
+                                      ItemTemplate="{StaticResource carouselDataTemplateSelector}"
+                                      VerticalOptions="FillAndExpand" 
+                                      HorizontalOptions="FillAndExpand">
+        </controls:CarouselViewControl>
+
+    </ContentPage.Content>
+</ContentPage>

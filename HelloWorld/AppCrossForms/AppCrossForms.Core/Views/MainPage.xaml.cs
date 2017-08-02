@@ -1,4 +1,5 @@
 ﻿using AppCrossForms.Core;
+using AppCrossForms.Core.Views;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -18,6 +19,11 @@ namespace AppCrossForms
         private void Button_Clicked(object sender, EventArgs e)
         {
             Navigation.PushAsync(new ListViewPage() { });
+        }
+
+        private async void OnBtnCarouselClicked(object sender, EventArgs e)
+        {
+            await Navigation.PushAsync(new ExploreUIPage());
         }
     }
 }
