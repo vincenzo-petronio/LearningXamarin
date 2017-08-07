@@ -11,6 +11,7 @@
 
         <Button Text="Navigate to ListView" Clicked="Button_Clicked"  />
         <Button Text="Navigate to Carousel" Clicked="OnBtnCarouselClicked" />
+        <Button Text="Navigate to Tabbed" Clicked="OnBtnTabClicked" />
     </StackLayout>
 
 </ContentPage>

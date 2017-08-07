@@ -56,6 +56,9 @@
     <Compile Include="Views\OddView.xaml.cs">
       <DependentUpon>OddView.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Views\TabbedPageExample.xaml.cs">
+      <DependentUpon>TabbedPageExample.xaml</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Views\MainPage.xaml">
@@ -111,6 +114,12 @@
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Views\OddView.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Views\TabbedPageExample.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
       <SubType>Designer</SubType>
     </EmbeddedResource>

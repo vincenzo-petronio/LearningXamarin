@@ -1,10 +1,6 @@
 ﻿using AppCrossForms.Core;
 using AppCrossForms.Core.Views;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using Xamarin.Forms;
 
 namespace AppCrossForms
@@ -24,6 +20,11 @@ namespace AppCrossForms
         private async void OnBtnCarouselClicked(object sender, EventArgs e)
         {
             await Navigation.PushAsync(new ExploreUIPage());
+        }
+
+        private async void OnBtnTabClicked(object sender, EventArgs e)
+        {
+            await Navigation.PushAsync(new TabbedPageExample());
         }
     }
 }
